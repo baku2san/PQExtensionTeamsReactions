@@ -5,7 +5,7 @@ Power Query Custom Connector to retreive Teams Reactions in a channel by a messa
 To analyze Microsoft Teams Reactions in the channel by Power BI
 
 # Qiita in Japanese  
-[release Microsoft Teams custom data connector for Power BI](https://qiita.com/baku2san/items/423a272074422d6a43c4)
+[release Microsoft Teams custom data connector for Power BI](https://qiita.com/baku2san/items/f224b71b204b45d8c9cc)
 
 # how to use
 1. paste Forms URL in the url<br>ex.) https://teams.microsoft.com/l/message/{channelId}/{messageId}?tenantId={tenantId}&groupId={groupId}<br>![Connecting](./Documents/Connecting.png)
