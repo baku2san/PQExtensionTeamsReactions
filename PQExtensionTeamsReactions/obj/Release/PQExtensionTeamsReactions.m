@@ -21,7 +21,7 @@ PQExtensionTeamsReactions = [
 
 // Data Source UI publishing description
 PQExtensionTeamsReactions.Publish = [
-    Beta = true,
+    Beta = false,
     Category = "Other",
     ButtonText = { Extension.LoadString("ButtonTitle"), Extension.LoadString("ButtonHelp") },
     LearnMoreUrl = "https://powerbi.microsoft.com/",
@@ -30,7 +30,7 @@ PQExtensionTeamsReactions.Publish = [
 ];
 
 PQExtensionTeamsReactions.PublishDetails = [
-    Beta = true,
+    Beta = false,
     Category = "Other",
     ButtonText = { Extension.LoadString("FormulaTitle"), Extension.LoadString("FormulaHelp") },
     LearnMoreUrl = "https://powerbi.microsoft.com/",
