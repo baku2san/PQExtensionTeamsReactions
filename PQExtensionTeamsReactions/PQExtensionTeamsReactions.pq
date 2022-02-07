@@ -15,7 +15,7 @@ PQExtensionTeamsReactions = [
             Resource = "https://graph.microsoft.com" // Azure AD resource value for your service - Guid or URL
         ]
     ],
-    Label = Extension.LoadString("Teams の Channel での Reactions 解析") // (optional Friendly display name for this extension in credential dialogs.         
+    Label = Extension.LoadString("DataSourceLabel") // (optional Friendly display name for this extension in credential dialogs.         
     // , TestConnection    Gateway 経由でデータ更新する場合にはサポート必要
 ];
 

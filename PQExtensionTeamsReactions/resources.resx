@@ -124,6 +124,6 @@
     <value>PQExtensionTeamsReactions</value>
   </data>
   <data name="DataSourceLabel" xml:space="preserve">
-    <value>PQExtensionTeamsReactions</value>
+    <value>Teams の Channel での Reactions 解析</value>
   </data>
 </root>
