@@ -55,8 +55,11 @@ let
             currentCount = currentJson[#"@odata.count"],
             createdDateTime = currentJson[value]{currentCount - 1}[createdDateTime],
             createdDateValue = DateTime.FromText(createdDateTime),
-            jsonLists = List.Transform(currentJson[value], each 
             hasFinished = targetDate > createdDateValue or (not hasLink),
+            replies = List.Transform(currentJson[value], each Json.Document(Web.Contents( targetUrl & "/" & _[id] & "/replies"))[value]),
+            unionedReplies = List.Union(replies),
+            messagesAndReplies = List.Combine({currentJson[value], unionedReplies}),
+            jsonLists = List.Transform(messagesAndReplies, each 
                  [
                     onBehalfOf = if _[onBehalfOf] is null then null else _[onBehalfOf][user],
                     postUser =  if _[from] is null then null else _[from][user],
