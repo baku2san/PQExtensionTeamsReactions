@@ -50,12 +50,13 @@ let
     getMessages = (url as text)  =>
         let
             currentJson = Json.Document(Web.Contents(url)),
-            nextLink = currentJson[#"@odata.nextLink"],
+            hasLink = Record.HasFields(currentJson, "@odata.nextLink"),
+            nextLink = if hasLink then currentJson[#"@odata.nextLink"] else null,
             currentCount = currentJson[#"@odata.count"],
             createdDateTime = currentJson[value]{currentCount - 1}[createdDateTime],
             createdDateValue = DateTime.FromText(createdDateTime),
-            hasFinished = targetDate > createdDateValue,
             jsonLists = List.Transform(currentJson[value], each 
+            hasFinished = targetDate > createdDateValue or (not hasLink),
                  [
                     onBehalfOf = if _[onBehalfOf] is null then null else _[onBehalfOf][user],
                     postUser =  if _[from] is null then null else _[from][user],
