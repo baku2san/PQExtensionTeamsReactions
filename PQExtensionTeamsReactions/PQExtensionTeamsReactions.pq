@@ -63,7 +63,7 @@ let
                     reactions = if _[reactions] is null then null else List.Transform( _[reactions], each 
                     [
                         reactionType = _[reactionType],
-                        createdDateTime = _[createdDateTime],
+                        createdDateTime = DateTime.FromText(_[createdDateTime]),
                         user = if _[user] is null then null else _[user][user]
                     ] ),
                     link = _[webUrl]
