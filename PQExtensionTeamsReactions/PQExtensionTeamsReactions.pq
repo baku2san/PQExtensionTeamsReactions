@@ -61,6 +61,12 @@ let
             messagesAndReplies = List.Combine({currentJson[value], unionedReplies}),
             jsonLists = List.Transform(messagesAndReplies, each 
                  [
+                    message = [
+                        subject = _[subject],
+                        createdDateTime = DateTime.FromText(_[createdDateTime]),
+                        deletedDateTime = DateTime.FromText(_[deletedDateTime]),
+                        bodyText = if _[body][contentType] = "text" then _[body][contentType] else "<none text>"
+                    ],
                     onBehalfOf = if _[onBehalfOf] is null then null else _[onBehalfOf][user],
                     postUser =  if _[from] is null then null else _[from][user],
                     reactions = if _[reactions] is null then null else List.Transform( _[reactions], each 
@@ -76,6 +82,12 @@ let
                 jsonLists,
                 Record.FieldValues,
                 type table [
+                    message = [
+                        subject = nullable text,
+                        createdDateTime = datetime,
+                        deletedDateTime = nullable datetime,
+                        bodyText = nullable text
+                    ],
                     onBehalfOf = nullable [
                             id = text,
                             displayName = nullable text,
