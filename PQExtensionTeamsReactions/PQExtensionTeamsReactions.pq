@@ -65,7 +65,7 @@ let
                         subject = _[subject],
                         createdDateTime = DateTime.FromText(_[createdDateTime]),
                         deletedDateTime = DateTime.FromText(_[deletedDateTime]),
-                        bodyText = if _[body][contentType] = "text" then _[body][contentType] else "<none text>"
+                        bodyText = if _[body][contentType] = "text" then _[body][content] else "<none text>"
                     ],
                     onBehalfOf = if _[onBehalfOf] is null then null else _[onBehalfOf][user],
                     postUser =  if _[from] is null then null else _[from][user],
